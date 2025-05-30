@@ -4,11 +4,11 @@ on:
     inputs:
       REPO:
         description: Kernel Repo
-        default: 'rsuntk/android_kernel_asus_sdm660-4.19'
+        default: 'nivranaitsirhc/kernel_asus_sdm660-PixelExperience'
         required: true
       BRANCH:
         description: Kernel branch
-        default: 'android-4.19-lts'
+        default: 'thirteen'
         required: true
       KSU:
         description: Add KernelSU support
@@ -20,6 +20,7 @@ on:
       REGEN_DEFCONFIG:
         description: Regen Defconfig
         type: boolean
+        default: false
         
 jobs:
   build:
@@ -62,7 +63,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Defconfig-${{ steps.buildKernel.outputs.buildDetails }}
-        path: kernel_root/arch/arm64/configs/rsuntk-X01BD_defconfig
+        path: kernel_root/arch/arm64/configs/asus/X01BD_defconfig
 
     - name: Build kernel
       run: |
